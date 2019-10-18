@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText numberEntered;
     private Button validate;
     private Object numberToFind;
+    private int counter = 0;
+    private TextView base;
+    private TextView view;
 
 
 
@@ -35,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         mgTv = (TextView) findViewById(R.id.msg);
         numberEntered = (EditText) findViewById(R.id.numberEntered);
-
+        base = (TextView) findViewById(R.id.count);
+        view = (TextView) findViewById(R.id.counterv);
 
 
 
@@ -97,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (n == number){
             Toast.makeText(this, "CONGRATULATION!, Numbers match!!", Toast.LENGTH_SHORT).show();
+            counter = counter +1;
+            base.setText(Integer.toString(counter));
         }
 
 

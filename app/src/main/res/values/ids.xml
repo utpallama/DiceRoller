@@ -2,4 +2,5 @@
 <resources>
     <item name="numberEntered" type="id" />
     <item name="msg" type="id" />
+    <item name="counterv" type="id" />
 </resources>
