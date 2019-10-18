@@ -15,9 +15,15 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import static com.example.ma18uus.diceroller.R.id.numberEntered;
+
 public class MainActivity extends AppCompatActivity {
 
 
+    private TextView mgTv;
+    private EditText numberEntered;
+    private Button validate;
+    private Object numberToFind;
 
 
 
@@ -27,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        mgTv = (TextView) findViewById(R.id.msg);
+        numberEntered = (EditText) findViewById(R.id.numberEntered);
 
 
 
@@ -81,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
 
         tv.setText(Integer.toString(number));
 
+
+        int n = Integer.parseInt(numberEntered.getText().toString());
+
+        if (n<1 || n>6){
+            Toast.makeText(this, "Invalid input, number must be between 1-6", Toast.LENGTH_SHORT).show();
+
+        } else if (n == number){
+            Toast.makeText(this, "CONGRATULATION!, Numbers match!!", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
