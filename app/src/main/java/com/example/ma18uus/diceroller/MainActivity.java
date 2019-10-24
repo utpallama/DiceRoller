@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static com.example.ma18uus.diceroller.R.id.numberEntered;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private int counter = 0;
     private TextView base;
     private TextView view;
-
+    private TextView tv1;
 
 
     @Override
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        tv1 = (TextView) this.findViewById(R.id.ListView);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -84,14 +87,12 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = (TextView) this.findViewById(R.id.numberTextView);
 
+        //Random r = new Random();
 
+        //int number = r.nextInt(7);
 
-        Random r = new Random();
-
-        int number = r.nextInt(7);
-
-
-        tv.setText(Integer.toString(number));
+        int i = roll_the_dice();
+        tv.setText(Integer.toString(i));
 
 
         int n = Integer.parseInt(numberEntered.getText().toString());
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         if (n<1 || n>6){
             Toast.makeText(this, "Invalid input, number must be between 1-6", Toast.LENGTH_SHORT).show();
 
-        } else if (n == number){
+        } else if (n == i){
             Toast.makeText(this, "CONGRATULATION!, Numbers match!!", Toast.LENGTH_SHORT).show();
             counter = counter +1;
             base.setText(Integer.toString(counter));
@@ -107,6 +108,44 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    public void on_button_click2(View view){
+
+
+        //1) create a TextView here first or in the main, in the main method at the top, create another TextView, for example "tv1"
+        //2) change the ID name to the text view your created eg "ListView"
+        //3) make sure to change the "onClick" to this method "on_button_click2"
+
+
+
+
+
+
+        ArrayList<String> randomlist = new ArrayList<String>();
+        randomlist.add("If you could go anywhere in the world, where would you go?");
+        randomlist.add("If you were stranded on a desert island, what three things would you want to take with you?");
+        randomlist.add("If you could eat only one food for the rest of your life, what would that be?");
+        randomlist.add("If you won a million dollars, what is the first thing you would buy?");
+        randomlist.add("If you could spaned the day with one fictional character, who would it be?");
+        randomlist.add("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+
+
+        int rand = (int) (Math.random()*6);
+
+        tv1.setText(randomlist.get(rand));
+    }
+
+
+
+    public int roll_the_dice(){
+        Random r = new Random();
+
+        int number = r.nextInt(7);
+        return number;
+    }
+
+
 
 
 
