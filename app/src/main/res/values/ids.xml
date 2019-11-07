@@ -3,4 +3,5 @@
     <item name="numberEntered" type="id" />
     <item name="msg" type="id" />
     <item name="counterv" type="id" />
+    <item name="userinput" type="id" />
 </resources>

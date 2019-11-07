@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.642" />
 
     <EditText
-        android:id="@+id/numberEntered"
+        android:id="@+id/userinput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
